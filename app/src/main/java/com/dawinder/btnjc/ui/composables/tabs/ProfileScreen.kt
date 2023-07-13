@@ -11,6 +11,9 @@ import com.dawinder.btnjc.R
 import com.dawinder.btnjc.ui.theme.md_theme_light_onBackground
 import com.dawinder.btnjc.ui.theme.typography
 
+/**
+ * Composable function that represents the profile screen of the application.
+ */
 @Composable
 fun ProfileScreen() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {

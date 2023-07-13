@@ -13,6 +13,12 @@ import com.dawinder.btnjc.ui.composables.MainScreen
 import com.dawinder.btnjc.ui.theme.BottomTabNavigationJetpackComposeTheme
 
 class MainActivity : ComponentActivity() {
+    /**
+     * Called when the activity is starting. This is where most initialization should go:
+     * calling `setContentView`, instantiating UI components, and binding data.
+     *
+     * @param savedInstanceState The previously saved instance state, if any.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

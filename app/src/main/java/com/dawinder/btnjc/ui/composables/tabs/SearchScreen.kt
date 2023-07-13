@@ -11,6 +11,9 @@ import com.dawinder.btnjc.R
 import com.dawinder.btnjc.ui.theme.md_theme_dark_secondaryContainer
 import com.dawinder.btnjc.ui.theme.typography
 
+/**
+ * Composable function that represents the search screen of the application.
+ */
 @Composable
 fun SearchScreen() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {

@@ -12,7 +12,11 @@ import androidx.compose.runtime.setValue
 import androidx.navigation.NavHostController
 import com.dawinder.btnjc.nav.NavItem
 
-
+/**
+ * Composable function that represents the bottom navigation bar of the application.
+ *
+ * @param navController The navigation controller used for handling navigation between screens.
+ */
 @Composable
 fun BottomNavigationBar(navController: NavHostController) {
     val navItems = listOf(NavItem.Home, NavItem.Search, NavItem.List, NavItem.Profile)

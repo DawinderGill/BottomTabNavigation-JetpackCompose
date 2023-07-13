@@ -10,6 +10,11 @@ import com.dawinder.btnjc.ui.composables.tabs.ListScreen
 import com.dawinder.btnjc.ui.composables.tabs.ProfileScreen
 import com.dawinder.btnjc.ui.composables.tabs.SearchScreen
 
+/**
+ * Composable function that defines the navigation screens and their corresponding destinations.
+ *
+ * @param navController The navigation controller used for handling navigation between screens.
+ */
 @Composable
 fun NavigationScreens(navController: NavHostController) {
     NavHost(navController, startDestination = NavItem.Home.path) {
