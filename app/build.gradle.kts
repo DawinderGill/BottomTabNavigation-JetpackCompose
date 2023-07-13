@@ -64,6 +64,9 @@ dependencies {
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
 
+    // Navigation Compose
+    implementation(libs.navigation.compose)
+
     // Core Libraries
     implementation(libs.core.ktx)
 
