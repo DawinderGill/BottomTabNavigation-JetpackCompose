@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BottomTabNavigation-JetpackCompose</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="list">List</string>
+    <string name="profile">Profile</string>
 </resources>
