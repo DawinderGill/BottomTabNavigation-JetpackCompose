@@ -28,13 +28,82 @@ Android Studio verison used : ``Android Studio Hedgehog | 2023.1.1 Canary 11``
 
 ## 🖥️ Code Snippets
 
+### 1. Main Screen with Bottom Navigation
+
+```
+fun MainScreen(navController: NavHostController) {
+    Scaffold(bottomBar = {
+        BottomAppBar { BottomNavigationBar(navController = navController) }
+    }) { NavigationScreens(navController = navController) }
+}
+```
+This code defines the `MainScreen` function that sets up a screen layout with a bottom app bar and main content area. It uses the `Scaffold` composable from Jetpack Compose to provide the basic structure. The `BottomAppBar` composable represents the bottom app bar, and within it, the `BottomNavigationBar` composable handles navigation. The `NavigationScreens` composable is used for the main content area, which handles navigation based on the provided `navController`.
+
+### 2. BottomNavigationBar
+```
+@Composable
+fun BottomNavigationBar(navController: NavHostController) {
+    val navItems = listOf(NavItem.Home, NavItem.Search, NavItem.List, NavItem.Profile)
+    var selectedItem by rememberSaveable { mutableStateOf(0) }
+
+    NavigationBar {
+        navItems.forEachIndexed { index, item ->
+            NavigationBarItem(
+                alwaysShowLabel = true,
+                icon = { Icon(item.icon, contentDescription = item.title) },
+                label = { Text(item.title) },
+                selected = selectedItem == index,
+                onClick = {
+                    selectedItem = index
+                    navController.navigate(item.path) {
+                        navController.graph.startDestinationRoute?.let { route ->
+                            popUpTo(route) { saveState = true }
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                }
+            )
+        }
+    }
+}
+```
+
+This code defines the `BottomNavigationBar` composable function, which is responsible for rendering a bottom navigation bar in a Compose UI.
+
+Inside the function, a list of `navItems` is created, representing the navigation items such as `Home, Search, List, and Profile`. A `selectedItem` variable is also defined using the `rememberSaveable` composable, which tracks the currently selected item.
+
+The `NavigationBar` composable is used to render the actual navigation bar UI. Within it, a forEachIndexed loop is used to iterate over the `navItems` list. For each item, a `NavigationBarItem` is rendered with the corresponding icon and label.
+
+The selected property of each `NavigationBarItem` is set based on whether the item's index matches the `selectedItem` index. When an item is clicked, the onClick lambda is triggered. It updates the selectedItem value and then uses the `navController` to navigate to the item's specified path. Additional navigation configurations are applied using the navController.navigate function.
+
+In summary, this code creates a reusable `bottom navigation bar` that allows users to navigate between different screens using the provided `navController`.
+
+### 3. NavigationScreens
+```
+@Composable
+fun NavigationScreens(navController: NavHostController) {
+    NavHost(navController, startDestination = NavItem.Home.path) {
+        composable(NavItem.Home.path) { HomeScreen() }
+        composable(NavItem.Search.path) { SearchScreen() }
+        composable(NavItem.List.path) { ListScreen() }
+        composable(NavItem.Profile.path) { ProfileScreen() }
+    }
+}
+```
+
+This code defines the `NavigationScreens` composable that handles the navigation logic in a Compose UI. It uses a `NavHost` to host and navigate between screens based on a `NavHostController`. The `startDestination` is set to the `NavItem`.`Home.path`, indicating the initial screen. Each screen is defined using the composable function, associating a path from the `NavItem` enum with a specific screen composable. This setup enables seamless navigation between screens using the provided `NavHostController`.
+
+For detailed information, you can check the whole code. 
+
+
 
 ## 🤝 Contributing
 
-Contributions are what make the open-source community such an amazing place to learn, inspire,
+Contributions are what make the open-source community such a fantastic place to learn, inspire,
 and create. Any contributions you make are **greatly appreciated**.
 
-**Note**: Please note that while this project focuses primarily on the use of ``Jetpack Compose``, it does not currently incorporate the use of ``foreground services`` for playing music in the background. This is an area where contributions would be particularly valuable, as foreground services are recommended for such functionality in Android development.
+**Note**: Please note that while this project focuses primarily on the use of ``Jetpack Compose``, it does not currently incorporate the use of ``foreground services`` for playing music in the background. This is an area where contributions would be precious, as foreground services are recommended for such functionality in Android development.
 
 If you would like to contribute, please follow these steps:
 
@@ -66,4 +135,3 @@ Feel free to ping me 😉
 
 ```license
 Copyright © 2023 - DawinderGill
-
