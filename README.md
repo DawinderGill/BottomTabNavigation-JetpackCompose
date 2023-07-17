@@ -31,6 +31,7 @@ Android Studio verison used : ``Android Studio Hedgehog | 2023.1.1 Canary 11``
 ### 1. Main Screen with Bottom Navigation
 
 ```
+@Composable
 fun MainScreen(navController: NavHostController) {
     Scaffold(bottomBar = {
         BottomAppBar { BottomNavigationBar(navController = navController) }
