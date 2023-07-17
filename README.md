@@ -132,7 +132,7 @@ Please make sure to update tests as appropriate.
 Feel free to ping me 😉
 
 
-## License
+## 📝 License
 
-```license
+```
 Copyright © 2023 - DawinderGill
