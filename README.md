@@ -97,6 +97,64 @@ This code defines the `NavigationScreens` composable that handles the navigation
 
 For detailed information, you can check the whole code. 
 
+## 💰 Bonus Knowledge
+
+In this project, we have utilized [TOML (Tom's Obvious, Minimal Language)](https://developer.android.com/build/migrate-to-catalogs) as a configuration file format for managing `Gradle dependencies and plugins`. TOML provides a clean and easy-to-read syntax, making it simpler to manage and maintain the project's dependencies.
+
+By using a TOML file, we can define and organize our Gradle dependencies and plugins in a structured manner. This approach enhances the `readability and maintainability` of our build configuration.
+
+The TOML file in this project serves as a `centralized location` to specify the required dependencies and plugins, ensuring consistency across different build scripts. By utilizing TOML, we have streamlined the process of managing dependencies and plugins, making the project more efficient and easier to maintain.
+
+Here is a basic example of what we can achieve with TOML:
+
+## From
+
+```
+// Top-level `build.gradle.kts` file
+plugins {
+   id("com.android.application") version "7.4.1" apply false
+}
+
+// Module-level `build.gradle.kts` file
+plugins {
+   id("com.android.application")
+}
+dependencies {
+    implementation("androidx.core:core-ktx:1.9.0")
+}
+```
+
+## To
+```
+// Top-level build.gradle.kts
+plugins {
+   alias(libs.plugins.android.application) apply false
+}
+
+// module build.gradle.kts
+plugins {
+   alias(libs.plugins.android.application)
+}
+dependencies {
+   implementation(libs.androidx.ktx)
+}
+```
+
+## By adding code like this in libs.versions.toml
+```
+[versions]
+ktx = "1.9.0"
+androidGradlePlugin = "7.4.1"
+
+[libraries]
+androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+
+```
+
+Feel free to explore the `TOML configuration file` in this project and adapt the approach to fit your own build management needs. You can find this file in the project `gradle` folder with the name `libs.versions.toml`.
 
 
 ## 🤝 Contributing
