@@ -154,7 +154,7 @@ android-application = { id = "com.android.application", version.ref = "androidGr
 
 ```
 
-Feel free to explore the `TOML configuration file` in this project and adapt the approach to fit your own build management needs. You can find this file in the project `gradle` folder with the name `libs.versions.toml`.
+Feel free to explore the `TOML configuration file` in this project and adapt the approach to fit your own build management needs. You can find this file in the project `gradle` folder with the name `libs.versions.toml`. Also, you can check my [medium story](https://medium.com/@dawinderapps/toml-the-future-of-gradle-dependency-declarations-14b72676c71f) for detailed information about this.
 
 
 ## 🤝 Contributing
