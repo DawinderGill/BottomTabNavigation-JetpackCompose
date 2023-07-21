@@ -55,10 +55,7 @@ dependencies {
     androidTestImplementation(platform(libs.compose.bom))
 
     // Jetpack Compose Libraries with BOM version
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.tooling.preview)
-    implementation(libs.material3)
+    implementation(libs.bundles.compose)
 
     // Other Jetpack Compose Libraries
     implementation(libs.lifecycle.runtime.ktx)

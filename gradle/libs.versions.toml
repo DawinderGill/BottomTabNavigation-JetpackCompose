@@ -37,3 +37,9 @@ daggerHilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt-androi
 kotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "plugin-kotlin" }
 
 [bundles]
+compose = [
+    "ui",
+    "ui-graphics",
+    "ui-tooling-preview",
+    "material3"
+]
