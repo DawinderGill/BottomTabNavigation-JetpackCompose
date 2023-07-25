@@ -162,8 +162,6 @@ Feel free to explore the `TOML configuration file` in this project and adapt the
 Contributions are what make the open-source community such a fantastic place to learn, inspire,
 and create. Any contributions you make are **greatly appreciated**.
 
-**Note**: Please note that while this project focuses primarily on the use of ``Jetpack Compose``, it does not currently incorporate the use of ``foreground services`` for playing music in the background. This is an area where contributions would be precious, as foreground services are recommended for such functionality in Android development.
-
 If you would like to contribute, please follow these steps:
 
 1. Open an issue first to discuss what you would like to change.
